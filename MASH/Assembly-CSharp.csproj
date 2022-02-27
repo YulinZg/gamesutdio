@@ -56,10 +56,11 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\HelicopterController.cs" />
     <Compile Include="Assets\Script\UIcontroller.cs" />
-    <Compile Include="Assets\Script\SoldierController.cs" />
     <Compile Include="Assets\Script\hospitalController.cs" />
+    <Compile Include="Assets\Script\HelicopterController.cs" />
+    <Compile Include="Assets\Script\SoldierController.cs" />
+    <Compile Include="Assets\Script\GameManagement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DKP_PixelArt\PixelArtStarshipPackage_TerranFleet\PixelArtStarshipPackage_TerranFleet_Info.txt" />
