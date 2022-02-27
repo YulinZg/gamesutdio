@@ -7,6 +7,7 @@ public class HelicopterController : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     float moveSpeed = 1.0f;
+    public int soldiersCounter = 0;
     void Start()
     {
         
