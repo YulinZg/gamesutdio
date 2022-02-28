@@ -8,6 +8,7 @@ public class HelicopterController : MonoBehaviour
     [SerializeField]
     float moveSpeed = 1.0f;
     public int soldiersCounter = 0;
+
     void Start()
     {
         

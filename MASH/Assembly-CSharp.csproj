@@ -59,8 +59,9 @@
     <Compile Include="Assets\Script\UIcontroller.cs" />
     <Compile Include="Assets\Script\hospitalController.cs" />
     <Compile Include="Assets\Script\HelicopterController.cs" />
-    <Compile Include="Assets\Script\SoldierController.cs" />
     <Compile Include="Assets\Script\GameManagement.cs" />
+    <Compile Include="Assets\Script\SoldierController.cs" />
+    <Compile Include="Assets\Script\TreeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DKP_PixelArt\PixelArtStarshipPackage_TerranFleet\PixelArtStarshipPackage_TerranFleet_Info.txt" />
