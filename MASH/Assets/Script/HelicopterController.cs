@@ -27,9 +27,18 @@ public class HelicopterController : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
             gameObject.transform.Translate(Vector3.down * moveSpeed * Time.deltaTime, Space.World);
         if (Input.GetKey(KeyCode.RightArrow))
+        {
             gameObject.transform.Translate(Vector3.right * moveSpeed * Time.deltaTime, Space.World);
+            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, 0.5f, gameObject.transform.localScale.z);
+
+        }
+            
         if (Input.GetKey(KeyCode.LeftArrow))
+        {
             gameObject.transform.Translate(Vector3.left * moveSpeed * Time.deltaTime, Space.World);
+            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, -0.5f, gameObject.transform.localScale.z);
+        }
+            
 
     }
 }

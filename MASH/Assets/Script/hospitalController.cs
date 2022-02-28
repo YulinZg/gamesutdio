@@ -6,12 +6,15 @@ public class hospitalController : MonoBehaviour
 {
     private UIcontroller ui;
     private int rescuedCounter = 0;
+    private int bulletLogicCounter = 0;
+    private GameManagement management;
     [SerializeField]
-    GameManagement management;
+    GunController gun;
     // Start is called before the first frame update
     void Start()
     {
         ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIcontroller>();
+        management = GameObject.FindGameObjectWithTag("management").GetComponent<GameManagement>();
     }
 
     // Update is called once per frame
@@ -21,11 +24,27 @@ public class hospitalController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        management.minSoldierNumber(collision.gameObject.GetComponent<HelicopterController>().soldiersCounter);
-        rescuedCounter += collision.gameObject.GetComponent<HelicopterController>().soldiersCounter;
-        collision.gameObject.GetComponent<HelicopterController>().soldiersCounter = 0;
-        ui.updataHelicopterCounter(collision.gameObject.GetComponent<HelicopterController>().soldiersCounter);
-        ui.updataHospitalCounter(rescuedCounter);
-        management.winGame();
+        if(collision.gameObject.tag == "Player")
+        {
+            rescuedCounter += collision.gameObject.GetComponent<HelicopterController>().soldiersCounter;
+            bulletLogicCounter += collision.gameObject.GetComponent<HelicopterController>().soldiersCounter;
+            management.minSoldierNumber(collision.gameObject.GetComponent<HelicopterController>().soldiersCounter);
+            collision.gameObject.GetComponent<HelicopterController>().soldiersCounter = 0;
+            ui.updataHelicopterCounter(collision.gameObject.GetComponent<HelicopterController>().soldiersCounter);
+            ui.updataHospitalCounter(rescuedCounter);
+            management.winGame();
+            if (bulletLogicCounter == 3)
+            {
+                bulletLogicCounter = 0;
+                gun.bulletNumber++;
+                ui.updataBulletCounter(gun.bulletNumber);
+            }
+            else if(bulletLogicCounter > 3)
+            {
+                bulletLogicCounter = bulletLogicCounter - 3;
+                gun.bulletNumber++;
+                ui.updataBulletCounter(gun.bulletNumber);
+            }
+        } 
     }
 }
