@@ -506,7 +506,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.6320754, g: 0.46267545, b: 0.4203898, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1243,8 +1243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e042ed53f96a5f4bbe6b099395b26de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soldierNumber: 1
-  treeNumber: 1
+  soldierNumber: 10
+  treeNumber: 10
   soldier: {fileID: 419111050396732546, guid: d1dbba1cfffb8a541bcac18b2cb5efee, type: 3}
   tree: {fileID: 2794771259460922338, guid: 73eb63dcd68c7f94a94635e22e53ed55, type: 3}
   winPanel: {fileID: 941394756}
