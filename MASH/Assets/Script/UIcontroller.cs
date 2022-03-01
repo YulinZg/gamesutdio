@@ -13,6 +13,8 @@ public class UIcontroller : MonoBehaviour
     [SerializeField]
     Text bulletCounter;
     [SerializeField]
+    Text time;
+    [SerializeField]
     GameObject introductionPanel;
 
     [SerializeField]
@@ -66,6 +68,8 @@ public class UIcontroller : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+        time.text = Time.timeSinceLevelLoad.ToString("#0.00");
+        
     }
 
     public void updataHelicopterCounter(int soldiersCounter)

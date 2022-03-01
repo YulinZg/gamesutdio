@@ -24,13 +24,35 @@ public class GameManagement : MonoBehaviour
     [SerializeField]
     GameObject losePanel;
 
+    [SerializeField]
+    Text time;
+
+    [SerializeField]
+    Text first;
+
+    [SerializeField]
+    Text second;
+
+    [SerializeField]
+    Text third;
+
     private int[,] map = new int[40, 20];
 
-
-    private GameObject[] soldiers;
+    private float[] timeRecord = new float[4];
+    
     // Start is called before the first frame update
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
+        for (int k = 0; k < timeRecord.Length; k++)
+        {
+            if (PlayerPrefs.HasKey(k.ToString()))
+            {
+                timeRecord[k] = float.Parse(PlayerPrefs.GetString(k.ToString()));
+            }
+            else
+                timeRecord[k] = 999.99f;
+        }
         //for(int i = 0; i < 10; i++)
         //{
         //    for(int j = 0; j < 20; j++)
@@ -72,7 +94,7 @@ public class GameManagement : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(1);
+            reStart();
     }
 
     public void reStart()
@@ -94,6 +116,40 @@ public class GameManagement : MonoBehaviour
             winPanel.SetActive(true);
             Time.timeScale = 0;
         }
+        timeRecord[3] = float.Parse(time.text);
+        float temp;
+        for (int j = timeRecord.Length - 1; j > 0; j--)
+        { 
+            for (int k = 0; k < j; k++)
+            { 
+                if (timeRecord[k] > timeRecord[k + 1])
+                {
+                    temp = timeRecord[k];
+                    timeRecord[k] = timeRecord[k + 1];
+                    timeRecord[k + 1] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < timeRecord.Length; i++)
+        {
+            PlayerPrefs.SetString(i.ToString(), timeRecord[i].ToString());
+        }
+        first.text = timeRecord[0].ToString();
+        second.text = timeRecord[1].ToString();
+        third.text = timeRecord[2].ToString();
+        //if (PlayerPrefs.HasKey("1st") && PlayerPrefs.HasKey("2nd") && PlayerPrefs.HasKey("3rd"))
+        //{
+        //    if(float.Parse(PlayerPrefs.GetString("3rd")) > float.Parse(time.text))
+
+        //}
+        //    PlayerPrefs.SetString("1st", time.text);
+        //if (!PlayerPrefs.HasKey("1st"))
+        //    PlayerPrefs.SetString("1st", time.text);
+        //if (!PlayerPrefs.HasKey("2nd"))
+        //    PlayerPrefs.SetString("2nd", time.text);
+        //if (!PlayerPrefs.HasKey("3rd"))
+        //    PlayerPrefs.SetString("3rd", time.text);
+
     }
 
     public void loseGame()
