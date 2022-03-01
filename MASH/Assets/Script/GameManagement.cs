@@ -36,7 +36,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField]
     Text third;
 
-    private int[,] map = new int[40, 20];
+    private int[,] map = new int[36, 20];
 
     private float[] timeRecord = new float[4] { 999.99f, 999.99f, 999.99f, 999.99f };
     
@@ -62,7 +62,7 @@ public class GameManagement : MonoBehaviour
         int i = 0;
         while(i < soldierNumber)
         {
-            int x = Random.Range(6, 38);
+            int x = Random.Range(8, 34);
             int y = Random.Range(2, 18);
             if (map[x, y] == 0 && map[x - 1, y] == 0 && map[x + 1, y] == 0 && map[x, y - 1] == 0 && map[x, y + 1] == 0)
             {
@@ -75,7 +75,7 @@ public class GameManagement : MonoBehaviour
         int j = 0;
         while (j < treeNumber)
         {
-            int x = Random.Range(6, 38);
+            int x = Random.Range(8, 34);
             int y = Random.Range(2, 18);
             if (map[x, y] == 0 && map[x - 1, y] == 0 && map[x + 1, y] == 0 && map[x, y - 1] == 0 && map[x, y + 1] == 0)
             {
@@ -92,6 +92,8 @@ public class GameManagement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
             reStart();
+        if (Input.GetKeyDown(KeyCode.Escape))
+            quit();
     }
 
     public void reStart()
@@ -102,7 +104,7 @@ public class GameManagement : MonoBehaviour
 
     public void quit() 
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
@@ -112,28 +114,29 @@ public class GameManagement : MonoBehaviour
         {
             winPanel.SetActive(true);
             Time.timeScale = 0;
-        }
-        timeRecord[3] = float.Parse(time.text);
-        float temp;
-        for (int j = timeRecord.Length - 1; j > 0; j--)
-        { 
-            for (int k = 0; k < j; k++)
-            { 
-                if (timeRecord[k] > timeRecord[k + 1])
+            timeRecord[3] = float.Parse(time.text);
+            for (int j = 0; j < timeRecord.Length; j++)
+            {
+                for (int k = 0; k < timeRecord.Length - j - 1; k++)
                 {
-                    temp = timeRecord[k];
-                    timeRecord[k] = timeRecord[k + 1];
-                    timeRecord[k + 1] = temp;
+                    if (timeRecord[k] > timeRecord[k + 1])
+                    {
+                        float temp = timeRecord[k];
+                        timeRecord[k] = timeRecord[k + 1];
+                        timeRecord[k + 1] = temp;
+                    }
                 }
             }
+            for (int i = 0; i < timeRecord.Length; i++)
+            {
+                PlayerPrefs.SetString(i.ToString(), timeRecord[i].ToString());
+            }
+            first.text = timeRecord[0].ToString();
+            second.text = timeRecord[1].ToString();
+            third.text = timeRecord[2].ToString();
         }
-        for (int i = 0; i < timeRecord.Length; i++)
-        {
-            PlayerPrefs.SetString(i.ToString(), timeRecord[i].ToString());
-        }
-        first.text = timeRecord[0].ToString();
-        second.text = timeRecord[1].ToString();
-        third.text = timeRecord[2].ToString();
+
+        
         //if (PlayerPrefs.HasKey("1st") && PlayerPrefs.HasKey("2nd") && PlayerPrefs.HasKey("3rd"))
         //{
         //    if(float.Parse(PlayerPrefs.GetString("3rd")) > float.Parse(time.text))

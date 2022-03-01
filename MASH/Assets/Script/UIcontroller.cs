@@ -37,8 +37,9 @@ public class UIcontroller : MonoBehaviour
                         "1. You can control your helicopter by using the arrow key. Your helicopter can only fit 3 soldiers at the time.\n" +
                         "2. Take injured soldiers to a hospital in batches. When all the soldiers are rescued, you win.\n" +
                         "3. If hitting a tree ends the game.\n" +
-                        "4. Every time you rescue three people, you will get a bullet, press X to fire it, it can destroy the tree\n" +
-                        "5. You can pressing the 'R' key resets the game.";
+                        "4. Every time you rescue three people, you will get a bullet, press X to fire it, it can destroy the tree.\n" +
+                        "5. You can pressing the 'R' key resets the game. 'Esc' for quit the game.\n" +
+                        "6. Try to rescue all wounded soldiers faster.";
             StartCoroutine(typeText());
         }
         
