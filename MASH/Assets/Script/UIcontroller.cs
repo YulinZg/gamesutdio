@@ -22,12 +22,12 @@ public class UIcontroller : MonoBehaviour
 
     Text[] dialogText;
     string showDialog;
-
+    private Scene scene;
     private bool isTyping;
     // Start is called before the first frame update
     void Start()
     {
-        Scene scene = SceneManager.GetActiveScene();
+        scene = SceneManager.GetActiveScene();
         if (scene.buildIndex == 0)
         {
             introductionPanel.SetActive(true);
@@ -68,7 +68,8 @@ public class UIcontroller : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
-        time.text = Time.timeSinceLevelLoad.ToString("#0.00");
+        if (scene.buildIndex == 1)
+            time.text = Time.timeSinceLevelLoad.ToString("#0.00");
         
     }
 

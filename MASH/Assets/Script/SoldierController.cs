@@ -13,6 +13,7 @@ public class SoldierController : MonoBehaviour
     {
         ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIcontroller>();
         pickupAudio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioSource>();
+        gameObject.transform.Rotate(0f, 0f, 90f, Space.Self);
         
     }
 

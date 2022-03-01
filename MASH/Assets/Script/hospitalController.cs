@@ -8,6 +8,7 @@ public class hospitalController : MonoBehaviour
     private int rescuedCounter = 0;
     private int bulletLogicCounter = 0;
     private GameManagement management;
+    private AudioSource pickupAudio;
     [SerializeField]
     GunController gun;
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class hospitalController : MonoBehaviour
     {
         ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIcontroller>();
         management = GameObject.FindGameObjectWithTag("management").GetComponent<GameManagement>();
+        pickupAudio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,12 +28,17 @@ public class hospitalController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            if (collision.gameObject.GetComponent<HelicopterController>().soldiersCounter != 0)
+            {
+                pickupAudio.Play();
+            }
             rescuedCounter += collision.gameObject.GetComponent<HelicopterController>().soldiersCounter;
             bulletLogicCounter += collision.gameObject.GetComponent<HelicopterController>().soldiersCounter;
             management.minSoldierNumber(collision.gameObject.GetComponent<HelicopterController>().soldiersCounter);
             collision.gameObject.GetComponent<HelicopterController>().soldiersCounter = 0;
             ui.updataHelicopterCounter(collision.gameObject.GetComponent<HelicopterController>().soldiersCounter);
             ui.updataHospitalCounter(rescuedCounter);
+            
             management.winGame();
             if (bulletLogicCounter == 3)
             {

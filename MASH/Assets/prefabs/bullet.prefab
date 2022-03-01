@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8944999608097499111}
   - component: {fileID: 3238848353661098299}
   - component: {fileID: 734270195}
-  - component: {fileID: 734270197}
   - component: {fileID: -2941976433354695900}
+  - component: {fileID: 2666784303434693278}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Bullet
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5334a60396bca40f19ac9d531fab2621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,7 +106,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &734270197
+--- !u!114 &-2941976433354695900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2613936617803451547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5bf6d3db3a3d84e85c07a783873cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 9
+  anim:
+  - {fileID: 21300000, guid: 5334a60396bca40f19ac9d531fab2621, type: 3}
+  - {fileID: 21300000, guid: 2b18d44d6d8244d5bbdbef2b52ba068b, type: 3}
+  - {fileID: 21300000, guid: d7e06cd92a81c4da982d67a807b692b8, type: 3}
+  - {fileID: 21300000, guid: a1ff8d71f6d1a4809b4e35fac8d4a7df, type: 3}
+--- !u!60 &2666784303434693278
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +141,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 0.63, y: 0.32}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -131,24 +149,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.02734375, y: 0.25}
-      - {x: -0.5, y: 0.02734375}
-      - {x: -0.5, y: -0.015625}
-      - {x: -0.0703125, y: -0.25}
-      - {x: 0.02734375, y: -0.25}
-      - {x: 0.5, y: -0.02734375}
-      - {x: 0.5, y: 0.015625}
-      - {x: 0.0703125, y: 0.25}
---- !u!114 &-2941976433354695900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2613936617803451547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e5bf6d3db3a3d84e85c07a783873cc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 5
+    - - {x: 0.265, y: 0.13}
+      - {x: 0.21499999, y: 0.13}
+      - {x: 0.085, y: 0.049999997}
+      - {x: 0.065, y: 0.13}
+      - {x: -0.205, y: 0.13}
+      - {x: -0.235, y: 0.07}
+      - {x: -0.235, y: -0.07}
+      - {x: -0.225, y: -0.099999994}
+      - {x: -0.16499999, y: -0.14999999}
+      - {x: -0.024999999, y: -0.16}
+      - {x: 0.275, y: -0.16}
+      - {x: 0.295, y: -0.14}
+      - {x: 0.295, y: 0.089999996}

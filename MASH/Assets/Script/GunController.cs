@@ -8,6 +8,7 @@ public class GunController : MonoBehaviour
     [SerializeField]
     GameObject bullet;
 
+
     [SerializeField]
     public int bulletNumber = 0;
 

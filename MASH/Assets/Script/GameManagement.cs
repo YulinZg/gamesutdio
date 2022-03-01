@@ -38,20 +38,17 @@ public class GameManagement : MonoBehaviour
 
     private int[,] map = new int[40, 20];
 
-    private float[] timeRecord = new float[4];
+    private float[] timeRecord = new float[4] { 999.99f, 999.99f, 999.99f, 999.99f };
     
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
         for (int k = 0; k < timeRecord.Length; k++)
         {
             if (PlayerPrefs.HasKey(k.ToString()))
             {
                 timeRecord[k] = float.Parse(PlayerPrefs.GetString(k.ToString()));
             }
-            else
-                timeRecord[k] = 999.99f;
         }
         //for(int i = 0; i < 10; i++)
         //{

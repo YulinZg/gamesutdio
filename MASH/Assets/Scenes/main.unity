@@ -195,7 +195,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a3aca3106951644181682381bfc858a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -220,8 +220,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &196425874
-CircleCollider2D:
+--- !u!61 &196425874
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -233,9 +233,19 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.13618237}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1.28, y: 1.0076352}
+  m_EdgeRadius: 0
 --- !u!1 &247427085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2108146236847550391, guid: 16c5fcd80e854034f9feed0f9bcf8ddc, type: 3}
@@ -864,13 +874,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025845656}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.79, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 1.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 247427088}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1025845659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,8 +1243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e042ed53f96a5f4bbe6b099395b26de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soldierNumber: 3
-  treeNumber: 3
+  soldierNumber: 1
+  treeNumber: 1
   soldier: {fileID: 419111050396732546, guid: d1dbba1cfffb8a541bcac18b2cb5efee, type: 3}
   tree: {fileID: 2794771259460922338, guid: 73eb63dcd68c7f94a94635e22e53ed55, type: 3}
   winPanel: {fileID: 941394756}
@@ -1321,7 +1331,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1628364179
 GameObject:
@@ -1734,7 +1744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6903034370447258623, guid: 63652ccff25e5b948a45c7b32c7e9ff7, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6903034370447258623, guid: 63652ccff25e5b948a45c7b32c7e9ff7, type: 3}
       propertyPath: m_AnchorMax.x
